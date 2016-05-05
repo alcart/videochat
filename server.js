@@ -4,7 +4,7 @@
 var express = require('express');
 var app = express();
 var securePort = 55555;
-var port = 3000;
+var port = process.env.PORT || 3000;
 var rooms = [];
 //Http
 {
