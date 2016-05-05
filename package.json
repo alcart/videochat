@@ -1,0 +1,10 @@
+{
+  "name": "Socket.io-Chat",
+  "version": "0.0.1",
+  "description": "Is a final porject chat using socket io",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5"
+  }
+}

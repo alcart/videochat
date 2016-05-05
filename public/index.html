@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta name='keywords' content='WebRTC, HTML5, JavaScript' />
+      <meta name='description' content='WebRTC Reference App' />
+      <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1'>
+
+      <title>CS50 Chat</title>
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/styles_1.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+ <ul>
+ 	<li class="login_page">
+    <h1>Welcome To CS50 Chat/VideoCall</h1>
+    <h4> 5C Copyright &reg;</h4>
+    <div class="container-fluid" id="wraper">
+        <div>
+          <input class="room_info" type="text" id="username" placeholder="Tell Me Your Name">
+        </div>
+        <div>
+            <input class="room_info" type="text" id="room_name"  placeholder="Type Room Name">
+        </div>
+        <div>
+            <input class="room_info" type="password" placeholder="Type Password" id="room_password">
+        </div>
+	</div>
+	</li>
+    <li class="chat_page">
+    <div class="msg">
+    <ul class="messages">
+    
+    </ul>
+    </div>	
+    <input class="inputMessage" placeholder="Type here..."/>
+    </li>
+</ul>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+	<script src="../js/jquery-1.11.2.min.js"></script>
+     <script src="/socket.io/socket.io.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed --> 
+	<script src="js/bootstrap.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
