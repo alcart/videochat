@@ -78,21 +78,21 @@ var rooms = [];
 
         // Video Room Events
 
-        socket.on("create or join video", function (username) {
+        socket.on("create or join video", function (username, video_room) {
             var exist = false;
-            if (io.of('/').adapter.rooms[socket.room_name].length != null) {
-                var numClients = io.of('/').adapter.rooms[socket.room_name].length;
+            if (io.of('/').adapter.rooms[video_room] != null) {
+                var numClients = io.of('/').adapter.rooms[video_room].length;
                 exist = true
             }
-            
+
             if (exist === false) {
-                socket.video_room = room;
-                socket.join(room);
+                socket.video_room = video_room;
+                socket.join(video_room);
                 socket.emit("created");
             } else if (numClients === 1) {
-                socket.broadcast.to(room).emit("join", room);
-                socket.video_room = room;
-                socket.join(room);
+                socket.broadcast.to(video_room).emit("join", video_room);
+                socket.video_room = video_room;
+                socket.join(video_room);
                 socket.emit("joined");
             } else {
                 socket.emit("full");
