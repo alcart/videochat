@@ -171,6 +171,10 @@ function handleCreateOfferError(event){
     console.log('createOffer() error: ', e);
 }
 
+function handleCreateAnswerError(event) {
+    console.log('createAnswer () error: ', e);
+}
+
 function doCall() {
     console.log('Sending offer to peer');
     pc.createOffer(setLocalAndSendMessage, handleCreateOfferError);
@@ -200,7 +204,7 @@ function requestTurn(turn_url) {
 
 function handleRemoteStreamAdded(event) {
     console.log('Remote stream added.');
-    remotevideo.attr("src", window.URL.createObjectURL(stream));
+    remotevideo.attr("src", window.URL.createObjectURL(event.stream));
     remoteStream = event.stream;
 }
 

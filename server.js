@@ -79,9 +79,13 @@ var rooms = [];
         // Video Room Events
 
         socket.on("create or join video", function (username) {
-            var numClients = io.of('/').adapter.rooms[socket.room_name].length;
+            var exist = false;
+            if (io.of('/').adapter.rooms[socket.room_name].length != null) {
+                var numClients = io.of('/').adapter.rooms[socket.room_name].length;
+                exist = true
+            }
             
-            if (numClients == 0) {
+            if (exist === false) {
                 socket.video_room = room;
                 socket.join(room);
                 socket.emit("created");
