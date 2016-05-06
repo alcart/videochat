@@ -191,11 +191,9 @@ function setLocalAndSendMessage(sessionDescription) {
 
 function requestTurn(turn_url) {
     var turnExists = false;
-    var turnServer = {"username": "1462592143:41784574", "password": "LsqkPuwzIZkrcPXIO0Yv37h2PaA=", "uris": ["turn:104.154.85.222:3478?transport=udp", "turn:104.154.85.222:3478?transport=tcp", "turn:104.154.85.222:3479?transport=udp", "turn:104.154.85.222:3479?transport=tcp"]};
-    console.log('Got TURN server: ', turnServer);
     pc_config.iceServers.push({
-    'url': 'turn:' + turnServer.username + '@' + turnServer.turn,
-    'credential': turnServer.password
+    'url': 'turn:numb.viagenie.ca',
+    'credential': 'muazkh'
     });
     turnReady = true;
 }
