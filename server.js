@@ -16,7 +16,7 @@ var rooms = [];
         console.log("routing");
     });
 
-    app.use(cors);
+    app.use(cors());
 
     app.use(express.static(__dirname + '/public'));
 
