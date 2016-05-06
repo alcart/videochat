@@ -3,6 +3,7 @@
  */
 var express = require('express');
 var app = express();
+var cors = require('cors');
 var securePort = 55555;
 var port = process.env.PORT || 3000;
 var rooms = [];
@@ -15,12 +16,8 @@ var rooms = [];
         console.log("routing");
     });
 
-    app.use(function (req,res,next) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "X-Requested-With");
-        next();
-    });
-    
+    app.use(cors);
+
     app.use(express.static(__dirname + '/public'));
 
     var server = http.createServer(app);
