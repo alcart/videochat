@@ -182,7 +182,7 @@ function doCall() {
 
 function doAnswer() {
     console.log('Sending answer to peer.');
-    pc.createAnswer(setLocalAndSendMessage, null, sdpConstraints);
+    pc.createAnswer(setLocalAndSendMessage, handleCreateAnswerError, sdpConstraints);
 }
 
 function setLocalAndSendMessage(sessionDescription) {
