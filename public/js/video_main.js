@@ -191,31 +191,13 @@ function setLocalAndSendMessage(sessionDescription) {
 
 function requestTurn(turn_url) {
     var turnExists = false;
-    for (var i in pc_config.iceServers) {
-        if (pc_config.iceServers[i].url.substr(0, 5) === 'turn:') {
-            turnExists = true;
-            turnReady = true;
-            break;
-        }
-    }
-    if (!turnExists) {
-        console.log('Getting TURN server from ', turn_url);
-        // No TURN server. Get one from computeengineondemand.appspot.com:
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function(){
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var turnServer = JSON.parse(xhr.responseText);
-                console.log('Got TURN server: ', turnServer);
-                pc_config.iceServers.push({
-                    'url': 'turn:' + turnServer.username + '@' + turnServer.turn,
-                    'credential': turnServer.password
-                });
-                turnReady = true;
-            }
-        };
-        xhr.open('GET', turn_url, true);
-        xhr.send();
-    }
+    var turnServer = {"username": "1462592143:41784574", "password": "LsqkPuwzIZkrcPXIO0Yv37h2PaA=", "uris": ["turn:104.154.85.222:3478?transport=udp", "turn:104.154.85.222:3478?transport=tcp", "turn:104.154.85.222:3479?transport=udp", "turn:104.154.85.222:3479?transport=tcp"]};
+    console.log('Got TURN server: ', turnServer);
+    pc_config.iceServers.push({
+    'url': 'turn:' + turnServer.username + '@' + turnServer.turn,
+    'credential': turnServer.password
+    });
+    turnReady = true;
 }
 
 function handleRemoteStreamAdded(event) {
