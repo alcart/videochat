@@ -58,3 +58,20 @@ h4 {
 .login_page{
 	display: block;
 }
+
+#whois{
+	font-size: 32px;
+	color: #000000;
+}
+#answer-button{
+	margin-left: 100px;
+	width: 130px;
+	height: 60px;
+	font-size: 24px;
+}
+#ignore-button{
+	width: 130px;
+	height: 60px;
+    font-size: 24px;
+	margin-left: 100px;
+}

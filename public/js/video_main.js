@@ -11,7 +11,7 @@ var pc;
 var remoteStream;
 var turnReady;
 
-var pc_config = {"iceServers":[{"urls":["stun:stun.l.google.com:19302"]},{"urls":["turn:104.154.85.222:3478?transport=udp"],"username":"1462592143:41784574","credential":"LsqkPuwzIZkrcPXIO0Yv37h2PaA="}],"iceTransportPolicy":"all"}, constraints={"optional":[{"googIPv6":true}]};
+var pc_config = {'iceServers': [{'url': 'stun:stun.l.google.com:19302'}, ]};
 
 var pc_constraints = {'optional': [{'DtlsSrtpKeyAgreement': true}]};
 
@@ -28,7 +28,7 @@ var socket = io();
  
 if (room){
     console.log("Creating or joining room");
-    socket.emit("create or join video", username);
+    socket.emit("create or join video", username, room);
 }
 
 // Socket events
@@ -136,7 +136,7 @@ window.onbeforeunload = function(e){
 
 function createPeerConnection() {
     try {
-        pc = new RTCPeerConnection(pc_config);
+        pc = new RTCPeerConnection(null);
         pc.onicecandidate = handleIceCandidate;
         pc.onaddstream = handleRemoteStreamAdded;
         pc.onremovestream = handleRemoteStreamRemoved;
@@ -193,14 +193,6 @@ function setLocalAndSendMessage(sessionDescription) {
     sendMessage(sessionDescription);
 }
 
-function requestTurn(turn_url) {
-    var turnExists = false;
-    pc_config.iceServers.push({
-    'url': 'turn:numb.viagenie.ca',
-    'credential': 'muazkh'
-    });
-    turnReady = true;
-}
 
 function handleRemoteStreamAdded(event) {
     console.log('Remote stream added.');

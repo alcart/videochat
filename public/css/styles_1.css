@@ -49,7 +49,7 @@ html, body {
 	width: 80%;
 	left: 8%;
 	text-align: center;
-	position: absolute;
+	position: relative;
 	color: #FFFFFF;
 	height: 90%;
 	margin-top: 10px;
@@ -72,6 +72,7 @@ html, body {
 	width: 50%;
 	border-radius: 22px;
 	background-color: #310505;
+	color: #FFFFFF;
 }
 
 .my_message {
@@ -87,6 +88,9 @@ html, body {
 	text-align: left;
 }
 
-i:hover {
+.username:hover {
+	cursor: pointer;
+}
+#answer-button:hover {
 	cursor: pointer;
 }

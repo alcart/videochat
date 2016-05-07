@@ -13,14 +13,13 @@ var $messages = $('.messages');
 var $connected = $('.connected');
 var $people = $('.people');
 var $inputMessage = $('.inputMessage');
-
+var $videoOffer = $("#video-offer");
 var socket = io();
 
 var usernameJSON;
 var connected = false;
 var inactive = false;
 var mp3 = document.createElement("AUDIO");
-mp3.setAttribute("src", "mp3/sounds-949-you-wouldnt-believe.mp3");
 
 function askPermission() {
     if (window.Notification && Notification.permission !== "granted"){
@@ -33,6 +32,7 @@ function askPermission() {
 }
 
 function showNotification(body, title, tag) {
+    mp3.setAttribute("src", "mp3/sounds-949-you-wouldnt-believe.mp3");
     var options = {
         body: body,
         icon: "img/ic_message_black_24dp_2x.png",
@@ -128,16 +128,8 @@ function showNotification(body, title, tag) {
             icon.hide();
         });
         $usernameDiv.click(function () {
-            var currentUrl = window.location.href;
-            var newUrl = currentUrl+randomToken();
-            usernameJSON = $(this).val();
-            var win = window.open(newUrl, "VideoCall", "fullscreen=yes,resizable=yes");
-            if (win){
-                win.focus();
-            }
-            else{
-                alert("Deactivate Pop-up Blocker");
-            }
+            socket.emit("video call request", data.id);
+            console.log(data.id);
         });
         addMessageElement($messageDiv);
     }
@@ -165,9 +157,6 @@ function showNotification(body, title, tag) {
     }
     function disconnectRoom() {
         window.location.reload();
-    }
-    function randomToken() {
-        return Math.floor((1 + Math.random()) * 1e16).toString(16).substring(1);
     }
 }
 // Keyboard Events
@@ -224,10 +213,61 @@ socket.on("log out", function () {
     console.log("Hello");
 });
 
+socket.on("video call approved", function (room_id) {
+    console.log("approved");
+    var currentUrl = window.location.href;
+    var newUrl = currentUrl+room_id;
+    var win = window.open(newUrl, "VideoCall", "fullscreen=yes,resizable=yes");
+    if (win){
+        win.focus();
+    }
+    else{
+        alert("Deactivate Pop-up Blocker");
+    }
+});
+
+socket.on("video call denied", function (username){
+    $("#whois").text("Ignored");
+    $("#mdl-body").text(username+" didn't answer");
+    $videoOffer.modal();
+});
+
+socket.on("video call", function (data){
+    console.log(data);
+    mp3.setAttribute("src", "mp3/hangout_video_call.mp3");
+    $("#whois").text(data.username+" Is Calling You");
+    $videoOffer.modal({backdrop: "static"});
+    mp3.loop = true;
+    mp3.play();
+
+    $("#answer-button").click(function () {
+        socket.emit("approved video", data.id);
+        $videoOffer.modal("hide");
+        mp3.pause();
+        mp3.loop = false;
+        clearTimeout(vtime);
+    });
+    $("#ignore-button").click(function () {
+        socket.emit("denied video", data.id);
+        $videoOffer.modal("hide");
+        mp3.pause();
+        mp3.loop = false;
+        clearTimeout(vtime);
+    });
+    var vtime = setTimeout(function () {
+        socket.emit("denied video", data.id);
+        $videoOffer.modal("hide");
+        mp3.loop = false;
+        mp3.pause();
+    }, 30000);
+
+    console.log("Receiving video call request");
+});
 $window.ready(function(){
     askPermission();
     var logTime;
     var idle;
+    $username.focus();
     $window.mousemove(function () {
         inactive = false;
         clearTimeout(logTime);
