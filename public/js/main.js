@@ -11,15 +11,18 @@ var $password = $('#room_password'); //Password Input
 var $chatPage = $('.chat_page');
 var $messages = $('.messages');
 var $connected = $('.connected');
-var $people = $('.people');
 var $inputMessage = $('.inputMessage');
 var $videoOffer = $("#video-offer");
 var socket = io();
 
-var usernameJSON;
 var connected = false;
 var inactive = false;
-var mp3 = document.createElement("AUDIO");
+
+var notificationMp3 = document.createElement("AUDIO");
+notificationMp3.setAttribute("src", "mp3/sounds-949-you-wouldnt-believe.mp3");
+var videoCallMp3 = document.createElement("AUDIO");
+videoCallMp3.setAttribute("src", "mp3/hangout_video_call.mp3");
+
 
 function askPermission() {
     if (window.Notification && Notification.permission !== "granted"){
@@ -32,7 +35,6 @@ function askPermission() {
 }
 
 function showNotification(body, title, tag) {
-    mp3.setAttribute("src", "mp3/sounds-949-you-wouldnt-believe.mp3");
     var options = {
         body: body,
         icon: "img/ic_message_black_24dp_2x.png",
@@ -41,7 +43,7 @@ function showNotification(body, title, tag) {
     if (window.Notification && Notification.permission === "granted") {
         var n = new Notification(title, options);
         var timer = setTimeout(n.close.bind(n), 5000);
-        mp3.play();
+        notificationMp3.play();
     }
 }
 // Scroll Bar Plugin
@@ -234,31 +236,30 @@ socket.on("video call denied", function (username){
 
 socket.on("video call", function (data){
     console.log(data);
-    mp3.setAttribute("src", "mp3/hangout_video_call.mp3");
     $("#whois").text(data.username+" Is Calling You");
     $videoOffer.modal({backdrop: "static"});
-    mp3.loop = true;
-    mp3.play();
+    videoCallMp3.loop = true;
+    videoCallMp3.play();
 
     $("#answer-button").click(function () {
         socket.emit("approved video", data.id);
         $videoOffer.modal("hide");
-        mp3.pause();
-        mp3.loop = false;
+        videoCallMp3.pause();
+        videoCallMp3.loop = false;
         clearTimeout(vtime);
     });
     $("#ignore-button").click(function () {
         socket.emit("denied video", data.id);
         $videoOffer.modal("hide");
-        mp3.pause();
-        mp3.loop = false;
+        videoCallMp3.pause();
+        videoCallMp3.loop = false;
         clearTimeout(vtime);
     });
     var vtime = setTimeout(function () {
         socket.emit("denied video", data.id);
         $videoOffer.modal("hide");
-        mp3.loop = false;
-        mp3.pause();
+        videoCallMp3.loop = false;
+        videoCallMp3.pause();
     }, 30000);
 
     console.log("Receiving video call request");
