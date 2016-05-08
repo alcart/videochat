@@ -2,28 +2,32 @@
 body, html {
 	width: 100%;
 	height: 100%;
+	background-color: #350841;
 }
 
 #outer-container {
-    border: 1px dotted black;
-    width: 100%;
-    height: 100%;
-    text-align: center;
+	width: 100%;
+	height: 100%;
+	text-align: center;
 }
-.inner-container {
-    border: 1px solid black;
-    display: inline-block;
-    position: relative;
+#inner-container {
+	margin-top: 0px;
+	border: 9px solid #12011F;
+	display: inline-block;
+	position: relative;
+	width: 50%;
+	height: 98%;
+	border-radius: 15px;
 }
 .local {
 	top: 0px;
 	position: absolute;
-	width: 133px;
-	height: 100px;
+	width: 180px;
+	height: 120px;
 }
 .remote {
-	width: 720px;
-	height: 541px;
+	width: 100%;
+	height: 100%;
 }
 video {
     width: 100%;

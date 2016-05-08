@@ -217,7 +217,7 @@ socket.on("video call approved", function (room_id) {
     console.log("approved");
     var currentUrl = window.location.href;
     var newUrl = currentUrl+room_id;
-    var win = window.open(newUrl, "VideoCall", "fullscreen=yes,resizable=yes");
+    var win = window.open(newUrl, "_blank");
     if (win){
         win.focus();
     }
