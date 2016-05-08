@@ -1,7 +1,7 @@
 @charset "utf-8";
 html, body {
 	height: 100%;
-	background-color: #000000;
+	background-color: #343d46;
 	font-family: 'Brandon Text W01', sans-serif;
 }
 
@@ -19,7 +19,7 @@ h4 {
 	font-family: 'Brandon Text W01', sans-serif;
 }
 .room_info{
-	background-color: #000000;
+	background-color: #343d46;
 	color: #FFFFFF;
 	width: 400px;
 	border-left: none;
@@ -27,7 +27,7 @@ h4 {
 	border-top: none;
 	border-bottom: 2px inset #FCF9F9;
 	text-align: center;
-	font-size: 44px;
+	font-size: 41px;
 	font-family: 'Brandon Text W01', sans-serif;
 	-webkit-box-shadow: 0px 0px;
 	box-shadow: 0px 0px;
