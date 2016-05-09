@@ -14,7 +14,6 @@ body, html {
 	border: 10px solid rgba(38,44,51,1.00);
 	border-radius: 15px;
 }
-
 .local {
 	top: 0px;
 	left:0px;
@@ -31,4 +30,21 @@ body, html {
 video {
     width: 100%;
     height: 100%;
+}
+.hang-up {
+	background: rgba(69,81,94,1.00);
+	width: 10%;
+	height: 6%;
+	position: absolute;
+	top: 5%;
+	left: 3%;
+	border: 3px solid rgba(33,39,45,1.00);
+	border-radius: 15px;
+    transition-duration: 0.4s;
+}
+.hang-up:hover {
+	background-color:rgba(38,44,51,1.00);
+	border-color:rgba(69,81,94,1.00);
+	color: #ECECEC;
+	cursor: pointer;
 }

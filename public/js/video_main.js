@@ -9,7 +9,7 @@ var isStarted = false;
 var localStream;
 var pc;
 var remoteStream;
-var turnReady;
+var $hangUp = $(".hang-up");
 
 var pc_config = {'iceServers': [{'url': 'stun:stun.l.google.com:19302'}, ]};
 
@@ -161,12 +161,6 @@ function handleIceCandidate(event) {
     }
 }
 
-function handleRemoteStreamAdded(event) {
-    console.log('Remote stream added.');
-    remotevideo.attr("src", window.URL.createObjectURL(stream));
-    remoteStream = event.stream;
-}
-
 function handleCreateOfferError(event){
     console.log('createOffer() error: ', e);
 }
@@ -218,10 +212,9 @@ function handleRemoteHangup() {
 
 function stop() {
     isStarted = false;
-    // isAudioMuted = false;
-    // isVideoMuted = false;
     pc.close();
     pc = null;
+    window.close();
 }
 
 //////////////////////////////////////////////////////
@@ -302,8 +295,11 @@ function removeCN(sdpLines, mLineIndex) {
 }
 
 
-
-
+$(document).ready(function () {
+    $hangUp.click(function () {
+        hangup();
+    })
+});
 
 
 

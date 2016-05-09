@@ -1,6 +1,6 @@
 // JavaScript Document
 
-var $button = $('#button');
+var $leave = $('.leave');
 var $window = $(document);
 
 var $login_page = $('.login_page');
@@ -155,7 +155,9 @@ function showNotification(body, title, tag) {
         $login_page.off('click');
         $chatPage.show();
         $inputMessage.focus();
-
+        $leave.click(function (){
+            disconnectRoom();
+        });
     }
     function disconnectRoom() {
         window.location.reload();
