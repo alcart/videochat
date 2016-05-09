@@ -243,19 +243,21 @@ socket.on("video call", function (data){
     videoCallMp3.loop = true;
     videoCallMp3.play();
 
-    $("#answer-button").click(function () {
+    $("#answer-button").click(function (evt) {
         socket.emit("approved video", data.id);
         $videoOffer.modal("hide");
         videoCallMp3.pause();
         videoCallMp3.loop = false;
         clearTimeout(vtime);
+        evt.stopImmediatePropagation();
     });
-    $("#ignore-button").click(function () {
+    $("#ignore-button").click(function (evt) {
         socket.emit("denied video", data.id);
         $videoOffer.modal("hide");
         videoCallMp3.pause();
         videoCallMp3.loop = false;
         clearTimeout(vtime);
+        evt.stopImmediatePropagation();
     });
     var vtime = setTimeout(function () {
         socket.emit("denied video", data.id);
