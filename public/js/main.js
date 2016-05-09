@@ -146,7 +146,7 @@ function showNotification(body, title, tag) {
         var $messageBody = $('<span class="messageBody"/>')
             .text(message);
         var $messageDiv = $('<li class="my_message"/>')
-            .append($messageBody, $usernameDiv);
+            .append($usernameDiv, $messageBody);
         addMessageElement($messageDiv);
     }
     function connectRoom(username, password, room_name) {
