@@ -3,11 +3,13 @@ body, html {
 	width: 100%;
 	height: 100%;
 	background-color: #343d46;
+	text-align: right;
 }
 
 #video-container {
+	
 	width: 50%;
-	height: 97%;
+	height: 93%;
 	text-align: center;
 	left: 23%;
 	position: relative;
@@ -32,6 +34,7 @@ video {
     height: 100%;
 }
 .hang-up {
+	font-family: 'Brandon Text W01', sans-serif;
 	background: rgba(69,81,94,1.00);
 	width: 10%;
 	height: 6%;
@@ -49,3 +52,35 @@ video {
 	color: #ECECEC;
 	cursor: pointer;
 }
+.thanks {
+	font-family: Rockwell, 'Courier Bold', Courier, Georgia, Times, 'Times New Roman', serif;
+	font-size: 28px;
+	margin-right: 21px;
+}
+
+a {
+	cursor: pointer;
+}
+
+a:link {
+    text-decoration: none;
+	color: black;
+}
+
+a:visited {
+    text-decoration: none;
+	color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+
+
+
+

@@ -3,6 +3,12 @@
  */
 'use strict';
 
+/** Most of these functions are from 
+ * the WebRCT demo adapted by me to
+ * work in my application */
+
+
+
 var isChannelReady;
 var isInitiator = false;
 var isStarted = false;
@@ -110,6 +116,10 @@ var constraints = {video: true, audio: true};
 getUserMedia(constraints, handleUserMedia, handleUserMediaError);
 
 console.log('Getting user media with constraints', constraints);
+
+if (location.hostname != "localhost") {
+    requestTurn('https://computeengineondemand.appspot.com/turn?username=41784574&key=4080218913');
+}
 
 function maybeStart() {
     if (!isStarted && typeof localStream != 'undefined' && isChannelReady) {
@@ -296,71 +306,3 @@ $(document).ready(function () {
         hangup();
     })
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

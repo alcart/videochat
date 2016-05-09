@@ -1,5 +1,6 @@
 // JavaScript Document
 
+// DOM Elements selected using JQuery
 var $leave = $('.leave');
 var $window = $(document);
 
@@ -15,15 +16,18 @@ var $inputMessage = $('.inputMessage');
 var $videoOffer = $("#video-offer");
 var socket = io();
 
+/////////////////////////////////////////////
+
 var connected = false;
 var inactive = false;
 
+//Audios that are going to be used in the page
 var notificationMp3 = document.createElement("AUDIO");
 notificationMp3.setAttribute("src", "mp3/sounds-949-you-wouldnt-believe.mp3");
 var videoCallMp3 = document.createElement("AUDIO");
 videoCallMp3.setAttribute("src", "mp3/hangout_video_call.mp3");
 
-
+//Ask Notification Permission
 function askPermission() {
     if (window.Notification && Notification.permission !== "granted"){
         Notification.requestPermission(function (status) {
@@ -46,6 +50,8 @@ function showNotification(body, title, tag) {
         notificationMp3.play();
     }
 }
+
+
 // Scroll Bar Plugin
 (function($){
     $(window).load(function(){
@@ -80,9 +86,10 @@ function showNotification(body, title, tag) {
     // Password
     $password.on("focus", function () {
         $password.attr("placeholder", "");
+        $password.css("background-color", "#343d46")
     });
     $password.on("blur", function () {
-        $password.attr("placeholder", "Type Room Password")
+        $password.attr("placeholder", "Type Password")
     });
     // Username
     $username.on("focus", function () {
@@ -95,7 +102,7 @@ function showNotification(body, title, tag) {
 
 
 
-// Functions
+// Main Functions
 {
     function log (message) {
         var $el = $('<li class="log">').text(message);
@@ -149,8 +156,10 @@ function showNotification(body, title, tag) {
             .append($usernameDiv, $messageBody);
         addMessageElement($messageDiv);
     }
-    function connectRoom(username, password, room_name) {
+    function tryConnectRoom(username, password, room_name) {
         socket.emit("create or join", username, password, room_name);
+    }
+    function connectRoom() {
         $login_page.fadeOut();
         $login_page.off('click');
         $chatPage.show();
@@ -178,7 +187,7 @@ function showNotification(body, title, tag) {
                 sendMessage();
             }
             else if (username && password && room_name){
-                    connectRoom(username, password, room_name);
+                    tryConnectRoom(username, password, room_name);
                 }
             $password.val("");
             $room_name.val("");
@@ -187,13 +196,23 @@ function showNotification(body, title, tag) {
     });
 }
 
+// Socket Events
+socket.on("wrong password", function () {
+    $username.focus();
+    $password.css("background-color", "red");
+    $password.attr("placeholder", "Wrong Password");
+
+});
+
 socket.on("created", function(username){
     connected = true;
+    connectRoom();
     log("Welcome To CS50 Chat");
     addUsername(username);
 });
 
 socket.on("joined", function(username){
+    connectRoom();
     log("User: "+username+" has joined the room");
     connected = true;
 
@@ -268,6 +287,8 @@ socket.on("video call", function (data){
 
     console.log("Receiving video call request");
 });
+
+/////////////////////////////
 $window.ready(function(){
     askPermission();
     var logTime;

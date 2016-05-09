@@ -7,7 +7,6 @@
 <title>CS50 Chat</title>
 <link href="css" rel="stylesheet" type="text/css">
 <link href="css/video.css" rel="stylesheet" type="text/css">
-<link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -16,12 +15,13 @@
 <![endif]-->
 </head>
 <body>
-<div class="container-fluid"><button class="hang-up">Hang Up</button></div>
+<div><button class="hang-up">Hang Up</button></div>
 <div id="video-container">
     <video class="remote" autoplay></video>
     <video class="local" autoplay muted></video>
-    
 </div>
+    <a href="https://webrtc.org/" target="_blank"><label class="thanks">Powered By WebRTC</label></a>
+
 
 <script src="../js/jquery-1.11.2.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>

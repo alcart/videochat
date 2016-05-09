@@ -75,3 +75,29 @@ h4 {
     font-size: 24px;
 	margin-left: 100px;
 }
+.thanks {
+	font-family: Rockwell, 'Courier Bold', Courier, Georgia, Times, 'Times New Roman', serif;
+	font-size: 28px;
+	bottom: 0px;
+	position: absolute;
+	right: 19px;
+	font-weight: normal;
+}
+
+a:link {
+    text-decoration: none;
+	color: black;
+}
+
+a:visited {
+    text-decoration: none;
+	color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}

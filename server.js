@@ -1,10 +1,14 @@
 /**
  * Created by Alain on 20/04/2016.
  */
+
+// Create main variables for the functioning of the server 
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 3000;
 var rooms = [];
+
+// Create HTTP server
 //Http
 {
 
@@ -27,12 +31,13 @@ var rooms = [];
         console.log("Http server running at port: "+ port);
     });}
 
- 
-    var io = require("socket.io")(server);
+// Initialize io variable 
+var io = require("socket.io")(server);
 
-// Socket Events
+//Socket Events
     io.on("connection", function (socket) {
 
+        //All Chat Events
         socket.on("create or join", function (username, password, room_name){
             if (rooms[room_name]) {
                 if (rooms[room_name] === password) {
@@ -42,6 +47,9 @@ var rooms = [];
                     socket.broadcast.to(socket.room_name).emit("joined", username);
                     socket.emit("joined", username);
                     console.log("joined");
+                }
+                else{
+                    socket.emit("wrong password");
                 }
             }
             else {
@@ -90,6 +98,7 @@ var rooms = [];
             var url = randomToken();
             socket.to(id).emit("video call approved", url);
             socket.emit("video call approved", url);
+            console.log(url);
         });
         socket.on("denied video", function (id) {
             console.log("denied");
@@ -118,7 +127,6 @@ var rooms = [];
         });
 
         socket.on('message', function (message) {
-            console.log("got message", message);
             socket.broadcast.to(socket.video_room).emit('message', message);
         });
 
