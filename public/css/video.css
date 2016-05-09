@@ -40,7 +40,8 @@ video {
 	left: 3%;
 	border: 3px solid rgba(33,39,45,1.00);
 	border-radius: 15px;
-    transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	font-size: 20px;
 }
 .hang-up:hover {
 	background-color:rgba(38,44,51,1.00);
