@@ -142,7 +142,7 @@ function showNotification(body, title, tag) {
 
     function addOutgoingMessage(message) {
         var $usernameDiv = $('<span class="my_username"/>')
-            .text(": Me");
+            .text("Me: ");
         var $messageBody = $('<span class="messageBody"/>')
             .text(message);
         var $messageDiv = $('<li class="my_message"/>')
