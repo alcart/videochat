@@ -1,10 +1,12 @@
 {
-  "name": "Socket.io-Chat",
+  "name": "FC Video Chat",
   "version": "0.0.1",
-  "description": "Is a final porject chat using socket io",
+  "description": "Final Project",
+  "engines": {
+    "node": "6.3.1",
+    "npm": "3.10.3"
+  },
   "dependencies": {
-    "body-parser": "^1.15.0",
-    "cors": "^2.7.1",
     "express": "^4.13.4",
     "socket.io": "^1.4.5"
   }

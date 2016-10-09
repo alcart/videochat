@@ -1,14 +1,10 @@
 /**
  * Created by Alain on 20/04/2016.
  */
-
-// Create main variables for the functioning of the server 
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 3000;
 var rooms = [];
-
-// Create HTTP server
 //Http
 {
 
@@ -31,7 +27,6 @@ var rooms = [];
         console.log("Http server running at port: "+ port);
     });}
 
-<<<<<<< HEAD
 
 var io = require("socket.io")(server);
 
@@ -40,30 +35,6 @@ io.on("connection", function (socket) {
     socket.on("create or join", function (username, password, room_name){
         if (rooms[room_name]) {
             if (rooms[room_name] === password) {
-=======
-// Initialize io variable 
-var io = require("socket.io")(server);
-
-//Socket Events
-    io.on("connection", function (socket) {
-
-        //All Chat Events
-        socket.on("create or join", function (username, password, room_name){
-            if (rooms[room_name]) {
-                if (rooms[room_name] === password) {
-                    socket.join(room_name);
-                    socket.username = username;
-                    socket.room_name = room_name;
-                    socket.broadcast.to(socket.room_name).emit("joined", username);
-                    socket.emit("joined", username);
-                    console.log("joined");
-                }
-                else{
-                    socket.emit("wrong password");
-                }
-            }
-            else {
->>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
                 socket.join(room_name);
                 socket.username = username;
                 socket.room_name = room_name;
@@ -108,24 +79,11 @@ var io = require("socket.io")(server);
 
     // Video Room Events
 
-<<<<<<< HEAD
     socket.on("video call request", function (id){
         console.log(id);
         socket.to(id).emit("video call", {
             username: socket.username,
             id: socket.id
-=======
-        socket.on("approved video", function (id) {
-            console.log("approved");
-            var url = randomToken();
-            socket.to(id).emit("video call approved", url);
-            socket.emit("video call approved", url);
-            console.log(url);
-        });
-        socket.on("denied video", function (id) {
-            console.log("denied");
-            socket.to(id).emit("video call denied", socket.username);
->>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
         });
         console.log("Sending video call request");
     });
@@ -141,7 +99,6 @@ var io = require("socket.io")(server);
         socket.to(id).emit("video call denied", socket.username);
     });
 
-<<<<<<< HEAD
     socket.on("create or join video", function (username, video_room) {
         var exist = false;
         if (io.of('/').adapter.rooms[video_room] != null) {
@@ -162,11 +119,6 @@ var io = require("socket.io")(server);
             socket.emit("full");
         }
     });
-=======
-        socket.on('message', function (message) {
-            socket.broadcast.to(socket.video_room).emit('message', message);
-        });
->>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
 
     socket.on('message', function (message) {
         console.log("got message", message);
