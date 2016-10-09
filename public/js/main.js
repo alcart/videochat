@@ -1,6 +1,12 @@
 // JavaScript Document
+<<<<<<< HEAD
 'use strict'
 var $button = $('#but');
+=======
+
+// DOM Elements selected using JQuery
+var $leave = $('.leave');
+>>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
 var $window = $(document);
 
 var $login_page = $('.login_page');
@@ -9,6 +15,7 @@ var $username = $('#username'); //Username Input
 var $password = $('#room_password'); //Password Input
 
 var $chatPage = $('.chat_page');
+<<<<<<< HEAD
 var $chat_body = $('.chat-body');
 var $chat_users = $('.chat-users');
 var $inputMessage = $('.input-message');
@@ -22,7 +29,26 @@ var mp3_1 = document.createElement("AUDIO");
 var mp3_2 = document.createElement("AUDIO");
 var room;
 
+=======
+var $messages = $('.messages');
+var $connected = $('.connected');
+var $inputMessage = $('.inputMessage');
+var $videoOffer = $("#video-offer");
+var socket = io();
 
+/////////////////////////////////////////////
+
+var connected = false;
+var inactive = false;
+>>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
+
+//Audios that are going to be used in the page
+var notificationMp3 = document.createElement("AUDIO");
+notificationMp3.setAttribute("src", "mp3/sounds-949-you-wouldnt-believe.mp3");
+var videoCallMp3 = document.createElement("AUDIO");
+videoCallMp3.setAttribute("src", "mp3/hangout_video_call.mp3");
+
+//Ask Notification Permission
 function askPermission() {
     if (window.Notification && Notification.permission !== "granted"){
         Notification.requestPermission(function (status) {
@@ -42,9 +68,15 @@ function showNotification(body, title, tag) {
     if (window.Notification && Notification.permission === "granted") {
         var n = new Notification(title, options);
         var timer = setTimeout(n.close.bind(n), 5000);
+<<<<<<< HEAD
         mp3_1.play();
+=======
+        notificationMp3.play();
+>>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
     }
 }
+
+
 // Scroll Bar Plugin
 (function($){
     $(window).load(function(){
@@ -79,9 +111,10 @@ function showNotification(body, title, tag) {
     // Password
     $password.on("focus", function () {
         $password.attr("placeholder", "");
+        $password.css("background-color", "#343d46")
     });
     $password.on("blur", function () {
-        $password.attr("placeholder", "Type Room Password")
+        $password.attr("placeholder", "Type Password")
     });
     // Username
     $username.on("focus", function () {
@@ -94,6 +127,7 @@ function showNotification(body, title, tag) {
 
 //Main
 
+<<<<<<< HEAD
 // Functions
 function log(message) {
     var $el = $('<li class="answer">').text(message);
@@ -122,6 +156,24 @@ function addUsername(main_data){
                 });
                 $chat_users.append(usernameDiv);
             }
+=======
+// Main Functions
+{
+    function log (message) {
+        var $el = $('<li class="log">').text(message);
+        addMessageElement($el);
+    }
+    function addUsername(username) {
+        var $iconDiv = $('<li class="username"><span>'+username+'<i class="fa fa-video-camera" id="video"></i></li>');
+        $connected.append($iconDiv);
+    }
+    function sendMessage() {
+        var message = $inputMessage.val();
+        if (message && connected){
+            socket.emit("new message", message);
+            $inputMessage.val("");
+            addOutgoingMessage(message);
+>>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
         }
     }
     else {
@@ -143,6 +195,7 @@ function addUsername(main_data){
     }
 }
 
+<<<<<<< HEAD
 function sendMessage() {
     var message = $inputMessage.val();
     if (message && connected) {
@@ -178,6 +231,32 @@ function addOutgoingMessage(message) {
 
 function connectRoom(username, password, room_name) {
     socket.emit("create or join", username, password, room_name);
+=======
+    function addOutgoingMessage(message) {
+        var $usernameDiv = $('<span class="my_username"/>')
+            .text("Me: ");
+        var $messageBody = $('<span class="messageBody"/>')
+            .text(message);
+        var $messageDiv = $('<li class="my_message"/>')
+            .append($usernameDiv, $messageBody);
+        addMessageElement($messageDiv);
+    }
+    function tryConnectRoom(username, password, room_name) {
+        socket.emit("create or join", username, password, room_name);
+    }
+    function connectRoom() {
+        $login_page.fadeOut();
+        $login_page.off('click');
+        $chatPage.show();
+        $inputMessage.focus();
+        $leave.click(function (){
+            disconnectRoom();
+        });
+    }
+    function disconnectRoom() {
+        window.location.reload();
+    }
+>>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
 }
 
 function disconnectRoom() {
@@ -199,12 +278,18 @@ function disconnectRoom() {
             if ($chatPage.is(":visible")) {
                 sendMessage();
             }
+<<<<<<< HEAD
             else if (username && password && room_name) {
                 connectRoom(username, password, room_name);
             }
             else if (!username || !password || !room_name){
                 $(".error").text("Missing: Username, Room Name or Password").show();
             }
+=======
+            else if (username && password && room_name){
+                    tryConnectRoom(username, password, room_name);
+                }
+>>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
             $password.val("");
             $room_name.val("");
             $username.val("");
@@ -212,6 +297,7 @@ function disconnectRoom() {
     });
 }
 
+<<<<<<< HEAD
 socket.on("created", function (username) {
     connected = true;
     Username = username;
@@ -232,9 +318,23 @@ socket.on("created", function (username) {
     $(".answer-btn-2").click(function () {
         sendMessage();
     });
+=======
+// Socket Events
+socket.on("wrong password", function () {
+    $username.focus();
+    $password.css("background-color", "red");
+    $password.attr("placeholder", "Wrong Password");
+
+});
+
+socket.on("created", function(username){
+    connected = true;
+    connectRoom();
+>>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
     log("Welcome To CS50 Chat");
 });
 
+<<<<<<< HEAD
 socket.on("joined", function (data) {
     if (!connected){
         Username = username;
@@ -256,6 +356,11 @@ socket.on("joined", function (data) {
             sendMessage();
         })
     }
+=======
+socket.on("joined", function(username){
+    connectRoom();
+    log("User: "+username+" has joined the room");
+>>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
     connected = true;
     console.log(data);
     log("User: " + data.username + " has joined the room");
@@ -297,8 +402,19 @@ socket.on("log out", function () {
 socket.on("video call approved", function (room_id) {
     console.log("approved");
     var currentUrl = window.location.href;
+<<<<<<< HEAD
     $chatPage.hide();
     $('.video-container').show(500, 'swing', VideoCall(room_id));
+=======
+    var newUrl = currentUrl+room_id;
+    var win = window.open(newUrl, "_blank");
+    if (win){
+        win.focus();
+    }
+    else{
+        alert("Deactivate Pop-up Blocker");
+    }
+>>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
 });
 
 socket.on("video call denied", function (username) {
@@ -309,36 +425,60 @@ socket.on("video call denied", function (username) {
 
 socket.on("video call", function (data) {
     console.log(data);
+<<<<<<< HEAD
     $("#whois").text(data.username + " Is Calling You");
     $videoOffer.modal({backdrop: "static"});
     mp3_2.loop = true;
     mp3_2.play();
+=======
+    $("#whois").text(data.username+" Is Calling You");
+    $videoOffer.modal({backdrop: "static"});
+    videoCallMp3.loop = true;
+    videoCallMp3.play();
+>>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
 
-    $("#answer-button").click(function () {
+    $("#answer-button").click(function (evt) {
         socket.emit("approved video", data.id);
         $videoOffer.modal("hide");
+<<<<<<< HEAD
         mp3_2.pause();
         mp3_2.loop = false;
+=======
+        videoCallMp3.pause();
+        videoCallMp3.loop = false;
+>>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
         clearTimeout(vtime);
+        evt.stopImmediatePropagation();
     });
-    $("#ignore-button").click(function () {
+    $("#ignore-button").click(function (evt) {
         socket.emit("denied video", data.id);
         $videoOffer.modal("hide");
+<<<<<<< HEAD
         mp3_2.pause();
         mp3_2.loop = false;
+=======
+        videoCallMp3.pause();
+        videoCallMp3.loop = false;
+>>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
         clearTimeout(vtime);
+        evt.stopImmediatePropagation();
     });
     var vtime = setTimeout(function () {
         socket.emit("denied video", data.id);
         $videoOffer.modal("hide");
-        mp3.loop = false;
-        mp3.pause();
+        videoCallMp3.loop = false;
+        videoCallMp3.pause();
     }, 30000);
 
     console.log("Receiving video call request");
 });
 
+<<<<<<< HEAD
 $window.ready(function () {
+=======
+/////////////////////////////
+$window.ready(function(){
+>>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
     askPermission();
     var logTime;
     var idle;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <title>CS50 CHAT</title>
@@ -78,5 +79,72 @@
 <script src="js/test_main.js" ></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+=======
+	<head>
+		<meta name="keywords" content="WebRTC, HTML5, JavaScript" />
+		<meta name="description" content="WebRTC Reference App" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+		<title>CS50 Chat</title>
+<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/styles_1.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<ul>
+<li class="login_page">
+<!-- Just a fancy Copyright doesn't mean anything -->
+<h1>Welcome To CS50 Chat/VideoCall</h1>
+<h4> 5C Copyright &reg;</h4>
+<div class="container-fluid" id="wraper">
+<div>
+<input class="room_info" type="text" id="username" placeholder="Tell Me Your Name">
+</div>
+<div>
+<input class="room_info" type="text" id="room_name"  placeholder="Create Or Join Room">
+</div>
+<div>
+<input class="room_info" type="password" placeholder="Type Password" id="room_password">
+</div>
+</div>
+</li>
+<li class="chat_page">
+<div class="container-fluid"><button class="leave">Leave Room</button></div>
+<div class="modal fade" id="video-offer" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 style="color:black;" id="whois">User Is Calling You</h4>
+</div>
+<div class="modal-body" id="mdl-body">
+<button class="btn btn-success" id="answer-button">Answer</button>
+<button class="btn btn-danger" id="ignore-button">Ignore</button>
+</div>
+</div>
+      
+</div>
+</div>
+<div class="msg">
+<ul class="messages"></ul>
+</div>	
+<input class="inputMessage" placeholder="Type here..."/>
+</li>
+<li><a href="http://socket.io/" target="_blank"><label class="thanks">Powered By Socket.IO</label></a></li>
+</ul>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="../js/jquery-1.11.2.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap.js"></script>
+<script src="js/main.js"></script>
+>>>>>>> 65d2b118e767996ee35f1e81535fabb2d4e81a15
 </body>
 </html>
