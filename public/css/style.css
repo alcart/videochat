@@ -1,67 +1,29 @@
-@charset "utf-8";
-html, body {
+
+html, body, .container-table, .login_page{
 	height: 100%;
-	background-color: #000000;
-	font-family: 'Brandon Text W01', sans-serif;
+	font-style: normal;
+}
+.login_page {
+	text-align: center;
 }
 
-h1 {
-	width: 100%;
-	text-align: center;
-	color: #FFFDFD;
-	font-family: 'Brandon Text W01', sans-serif;
-	font-size: 50px;
+.container-table {
+	display: table;
 }
-h4 {
-	width: 100%;
+.room_container {
+	width : 50%;
+	display: table-cell;
+	vertical-align: middle;
 	text-align: center;
-	color: #FFFDFD;
-	font-family: 'Brandon Text W01', sans-serif;
 }
-.room_info{
-	background-color: #000000;
-	color: #FFFFFF;
-	width: 400px;
+.room_info {
+	text-align: center;
 	border-left: none;
 	border-right: none;
 	border-top: none;
-	border-bottom: 2px inset #FCF9F9;
-	text-align: center;
+	border-bottom: 2px inset #000000;
 	font-size: 44px;
-	font-family: 'Brandon Text W01', sans-serif;
-	-webkit-box-shadow: 0px 0px;
-	box-shadow: 0px 0px;
 	outline: none;
-	margin-left: -33px;
-	font-weight: lighter;
-}
-
-#wraper{
-	text-align: center;
-	width: 300px;
-    height: 100px;
-    padding: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-  margin: -70px 0 0 -170px;
-}
-
-.chat_page {
-	display: none;
-	height: 97%;
-	width: 97%;
-	position: absolute;
-	margin-top: -9px;
-}
-.login_page{
-	display: block;
-}
-
-#whois{
-	font-size: 32px;
-	color: #000000;
 }
 #answer-button{
 	margin-left: 100px;
@@ -72,6 +34,286 @@ h4 {
 #ignore-button{
 	width: 130px;
 	height: 60px;
-    font-size: 24px;
+	font-size: 24px;
 	margin-left: 100px;
+}
+
+.vertical-center {
+	min-height: 100%;  /* Fallback for vh unit */
+	min-height: 100vh; /* You might also want to use
+                        'height' property instead.
+
+                        Note that for percentage values of
+                        'height' or 'min-height' properties,
+                        the 'height' of the parent element
+                        should be specified explicitly.
+
+                        In this case the parent of '.vertical-center'
+                        is the <body> element */
+
+	/* Make it a flex container */
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	/* Align the bootstrap's container vertically */
+	-webkit-box-align : center;
+	-webkit-align-items : center;
+	-moz-box-align : center;
+	-ms-flex-align : center;
+	align-items : center;
+
+	/* In legacy web browsers such as Firefox 9
+       we need to specify the width of the flex container */
+	width: 100%;
+
+	/* Also 'margin: 0 auto' doesn't have any effect on flex items in such web browsers
+       hence the bootstrap's container won't be aligned to the center anymore.
+
+       Therefore, we should use the following declarations to get it centered again */
+	-webkit-box-pack : center;
+	-moz-box-pack : center;
+	-ms-flex-pack : center;
+	-webkit-justify-content : center;
+	justify-content : center;
+}
+
+.video-container{
+	width : 50%;
+	background-color: #FFFFFF;
+}
+.local {
+	position: absolute;
+	width: 133px;
+	height: 100px;
+	background-color: #ffffff;
+	border: 3px solid #000000;
+	border-radius: 9px;
+}
+.remote {
+	width: 720px;
+	height: 541px;
+	background-color: #FFFFFF;
+	border: 7px solid #000000;
+	border-radius: 41px;
+}
+
+#but{
+	background-color: #CFCFCF;
+	border: 1px inset #414141;
+	font-size: 14px;
+	border-radius: 9px;
+	transition-duration: 0.2s;
+	margin-top: 3px;
+	margin-right: 7px;
+	margin-bottom: 4px;
+	outline:none;
+}
+#but:hover {
+	background-color: #0F0F0F;
+	color: #F3F3F3;
+	margin-top: 3px;
+	margin-right: 7px;
+	outline:none;
+}
+.content {
+	height: 98%;
+}
+.row.row-broken {
+	padding-bottom: 0;
+	height: 90%;
+	width: 70%;
+	font-family: "Open Sans";
+	background-color: #FFFFFF;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	border-radius: 15px;
+	border: 2px solid #000000;
+}
+.col-inside-lg {
+	padding: 20px;
+	border-width: 0px;
+}
+.chat {
+	height: 85%;
+}
+.main-wrapper {
+	border-right: 3px solid #7D7D7D;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+.chat-wrapper {
+	height: 100%;
+	background-color: #D3D3D3;
+
+}
+.decor-default {
+	background-color: #ffffff;
+}
+.chat-users{
+	height: 100%;
+}
+.chat-users h6 {
+	font-size: 3vw;
+	font-family: 'Pacifico', serif;
+}
+.chat-users .user {
+	position: relative;
+	display: block;
+	cursor: pointer;
+}
+
+.chat-users .user .name {
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 20px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/*****************CHAT BODY *******************/
+.log {
+	background: #000000;
+	color: #ffffff;
+	border-radius: 8px 8px 8px 0;
+	padding: 12px;
+	font-size: 16px;
+	line-height: 26px;
+	position: relative;}
+.chat-body{
+	height: 80%;
+}
+
+.chat-body .answer.left {
+	padding: 0 0 0 58px;
+	text-align: left;
+	float: left;
+	margin-bottom: 5px;
+}
+.chat-body .answer {
+	position: relative;
+	max-width: 600px;
+	overflow: hidden;
+	clear: both;
+}
+
+.chat-body .answer .name {
+	font-size: 8px;
+	line-height: 36px;
+}
+
+.chat-body .answer.left .text {
+	background: #ebebeb;
+	color: #333333;
+	border-radius: 8px 8px 8px 0;
+}
+.chat-body .answer .text {
+	padding: 3px 3px 3px 3px;
+	font-size: 12px;
+	line-height: 26px;
+	position: relative;
+}
+.chat-body .answer.left .text:before {
+	left: -30px;
+	border-right-color: #ebebeb;
+	border-right-width: 12px;
+}
+.chat-body .answer .text:before {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	border: 18px solid transparent;
+	border-bottom-width: 0;
+}
+
+/*RIGHT*/
+.chat-body .answer.right {
+	padding: 0 20px 0 0;
+	text-align: right;
+	float: right;
+	margin-bottom: 5px;
+}
+
+.chat-body .answer.right .text {
+	background: #000000;
+	color: #ffffff;
+	border-radius: 8px 8px 0 8px;
+}
+.chat-body .answer.right .text:before {
+	right: -30px;
+	border-left-color: #000000;
+	border-left-width: 12px;
+}
+.chat-body .answer.right .time {
+	padding-right: 12px;
+	color: #333333;
+}
+
+/**************ADD FORM ***************/
+.answer-add {
+	position: relative;
+	width: 70%;
+	float: right;
+	margin-top: 30px;
+	padding: 20px;
+	background: #808080;
+	border-radius: 13px;
+	bottom: 0;
+	right: 4px;
+}
+.answer-add input {
+	border: none;
+	background: none;
+	display: block;
+	width: 100%;
+	font-size: 16px;
+	line-height: 20px;
+	padding: 0;
+	color: #ffffff;
+	outline: none;
+}
+.chat input {
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+
+.answer-add .answer-btn {
+	display: block;
+	cursor: pointer;
+	width: 36px;
+	height: 36px;
+	position: absolute;
+	top: 50%;
+	margin-top: -18px;
+}
+.answer-add .answer-btn-2 {
+	background: url("http://91.234.35.26/iwiki-admin/v1.0.0/admin/img/icon-41.png") 50% 50% no-repeat;
+	right: 20px;
+}
+.chat input::-webkit-input-placeholder {
+	color: #fff;
+}
+
+.chat input:-moz-placeholder { /* Firefox 18- */
+	color: #fff;
+}
+
+.chat input::-moz-placeholder {  /* Firefox 19+ */
+	color: #fff;
+}
+
+.chat input:-ms-input-placeholder {
+	color: #fff;
+}
+.chat input {
+	-webkit-appearance: none;
+	border-radius: 0;
 }
