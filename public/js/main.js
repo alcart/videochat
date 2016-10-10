@@ -400,7 +400,7 @@ function VideoCall(room) {
 
 // Socket events
 
-    socket.on("created", function (room) {
+    socket.on("created video room", function (room) {
         console.log("Created room ", room);
         isInitiator = true;
     });
@@ -415,7 +415,7 @@ function VideoCall(room) {
         isChannelReady = true;
     });
 
-    socket.on("joined", function (room) {
+    socket.on("joined video room", function (room) {
         console.log("This peer has joined room" + room);
         isChannelReady = true;
     });
