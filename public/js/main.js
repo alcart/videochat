@@ -237,7 +237,7 @@ socket.on("created", function (username) {
 
 socket.on("joined", function (data) {
     if (!connected){
-        Username = username;
+        Username = data.username;
         $login_page.fadeOut();
         $login_page.off('click');
         $chatPage.show();
