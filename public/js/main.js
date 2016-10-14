@@ -592,7 +592,7 @@ function VideoCall(room) {
         isInitiator = false;
         isStarted = false;
         remotevideo.attr("src", "");
-        localStream.attr("src", "");
+        localvideo.attr("src", "");
     }
 
 //////////////////////////////////////////////////////
