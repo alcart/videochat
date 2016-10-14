@@ -408,7 +408,7 @@ function VideoCall(room) {
 
     socket.on("join video room", function (room) {
         console.log("Another peer made request to join room: " + room);
-        console.log("This peer is initiator");e
+        console.log("This peer is initiator");
         isChannelReady = true;
     });
 
