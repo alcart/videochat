@@ -406,9 +406,9 @@ function VideoCall(room) {
         console.log("room " + room + " is full");
     });
 
-    socket.on("join", function (room) {
+    socket.on("join video room", function (room) {
         console.log("Another peer made request to join room: " + room);
-        console.log("This peer is initiator");
+        console.log("This peer is initiator");e
         isChannelReady = true;
     });
 
