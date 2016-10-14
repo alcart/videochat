@@ -367,16 +367,16 @@ $window.ready(function () {
 });
 
 
-var isChannelReady;
-var isInitiator = false;
-var isStarted = false;
-var localStream;
-var pc;
-var remoteStream;
 
 //Video
 
 function VideoCall(room) {
+    var isChannelReady;
+    var isInitiator = false;
+    var isStarted = false;
+    var localStream;
+    var pc;
+    var remoteStream;
 
     $button2.click(function () {
         hangup()
@@ -567,6 +567,10 @@ function VideoCall(room) {
 
     function hangup() {
         stop();
+        var tracks = localStream.getTracks();
+        for (var i in tracks){
+            tracks[i].stop();
+        }
         sendMessage('bye');
         $('.video-container').hide(500, 'swing');
         $chatPage.show();
