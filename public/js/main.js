@@ -566,6 +566,8 @@ function VideoCall(room) {
     function hangup() {
         stop();
         sendMessage('bye');
+        $('.video-container').hide(500, 'swing');
+        $chatPage.show();
     }
 
     function handleRemoteHangup() {
