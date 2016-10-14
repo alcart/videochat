@@ -1,6 +1,7 @@
 // JavaScript Document
 'use strict'
 var $button = $('#but');
+var $button2= $('#hung-up');
 var $window = $(document);
 
 var $login_page = $('.login_page');
@@ -117,7 +118,7 @@ function addUsername(main_data){
                     icon.hide();
                 });
                 usernameDiv.click(function () {
-                    socket.emit("video call request", main_data[i].id);
+                    socket.emit("video call request", this.firstChild.id);
                     console.log("Hello");
                 });
                 $chat_users.append(usernameDiv);
@@ -374,7 +375,12 @@ var pc;
 var remoteStream;
 
 //Video
+
 function VideoCall(room) {
+
+    $button2.click(function () {
+        hangup()
+    });
 
     var pc_config = {'iceServers': [{'url': 'stun:stun.l.google.com:19302'},]};
 
@@ -558,7 +564,6 @@ function VideoCall(room) {
     }
 
     function hangup() {
-        console.log('Hanging up.');
         stop();
         sendMessage('bye');
     }
