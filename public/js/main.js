@@ -296,6 +296,7 @@ socket.on("log out", function () {
 
 socket.on("video call approved", function (room_id) {
     console.log("approved");
+    console.log(room_id);
     var currentUrl = window.location.href;
     $chatPage.hide();
     $('.video-container').show(500, 'swing', VideoCall(room_id));
@@ -308,7 +309,6 @@ socket.on("video call denied", function (username) {
 });
 
 socket.on("video call", function (data) {
-    console.log(data);
     $("#whois").text(data.username + " Is Calling You");
     $videoOffer.modal({backdrop: "static"});
     mp3_2.loop = true;
@@ -334,8 +334,6 @@ socket.on("video call", function (data) {
         mp3.loop = false;
         mp3.pause();
     }, 30000);
-
-    console.log("Receiving video call request");
 });
 
 $window.ready(function () {
@@ -368,16 +366,15 @@ $window.ready(function () {
 });
 
 
+var isChannelReady;
+var isInitiator = false;
+var isStarted = false;
+var localStream;
+var pc;
+var remoteStream;
 
 //Video
 function VideoCall(room) {
-    var isChannelReady;
-    var isInitiator = false;
-    var isStarted = false;
-    var localStream;
-    var pc;
-    var remoteStream;
-    var turnReady;
 
     var pc_config = {'iceServers': [{'url': 'stun:stun.l.google.com:19302'},]};
 
