@@ -454,6 +454,8 @@ function VideoCall(room) {
             pc.addIceCandidate(candidate);
         } else if (message === 'bye' && isStarted) {
             handleRemoteHangup();
+            $('.video-container').show(500, 'swing');
+            $chatPage.show()
         }
     });
 
