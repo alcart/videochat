@@ -454,7 +454,7 @@ function VideoCall(room) {
             pc.addIceCandidate(candidate);
         } else if (message === 'bye' && isStarted) {
             handleRemoteHangup();
-            $('.video-container').show(500, 'swing');
+            $('.video-container').hide(500, 'swing');
             $chatPage.show()
         }
     });
@@ -567,10 +567,6 @@ function VideoCall(room) {
 
     function hangup() {
         stop();
-        var tracks = localStream.getTracks();
-        for (var i in tracks){
-            tracks[i].stop();
-        }
         sendMessage('bye');
         $('.video-container').hide(500, 'swing');
         $chatPage.show();
@@ -583,11 +579,20 @@ function VideoCall(room) {
     }
 
     function stop() {
+        var tracks = localStream.getTracks();
+        for (var i in tracks){
+            tracks[i].stop();
+        }
         isStarted = false;
         // isAudioMuted = false;
         // isVideoMuted = false;
         pc.close();
         pc = null;
+        isChannelReady = false;
+        isInitiator = false;
+        isStarted = false;
+        remotevideo.attr("src", "");
+        localStream.attr("src", "");
     }
 
 //////////////////////////////////////////////////////
