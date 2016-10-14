@@ -523,8 +523,8 @@ function VideoCall(room) {
 
     function handleRemoteStreamAdded(event) {
         console.log('Remote stream added.');
-        remotevideo.attr("src", window.URL.createObjectURL(stream));
         remoteStream = event.stream;
+        remotevideo.attr("src", window.URL.createObjectURL(remoteStream));
     }
 
     function handleCreateOfferError(event) {
