@@ -109,13 +109,13 @@ io.on("connection", function (socket) {
         if (exist === false) {
             socket.video_room = video_room;
             socket.join(video_room);
-            socket.emit("created video room");
+            socket.emit("created video room", video_room);
             console.log(video_room);
         } else if (numClients === 1) {
             socket.broadcast.to(video_room).emit("join video room", video_room);
             socket.video_room = video_room;
             socket.join(video_room);
-            socket.emit("joined video room");
+            socket.emit("joined video room", video_room);
         } else {
             socket.emit("full");
         }

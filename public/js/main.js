@@ -262,7 +262,6 @@ socket.on("joined", function (data) {
     log("User: " + data.username + " has joined the room");
     if (data.data) {
         console.log("hello");
-        debugger;
         addUsername(data.data);
     }
     else{
@@ -435,7 +434,9 @@ function VideoCall(room) {
     }
 
     socket.on('message', function (message) {
-        console.log('Client received message:', message);
+        if (message !== 'object') {
+            console.log('Client received message:', message);
+        }
         if (message === 'got user media') {
             maybeStart();
         } else if (message.type === 'offer') {
