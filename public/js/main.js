@@ -588,8 +588,8 @@ function VideoCall(room) {
         // isVideoMuted = false;
         pc.close();
         pc = null;
-        remoteStream = null;
-        localStream = null;
+        remoteStream = 'undefined';
+        localStream = 'undefined';
         isChannelReady = false;
         isInitiator = false;
         isStarted = false;
