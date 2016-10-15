@@ -110,6 +110,7 @@ io.on("connection", function (socket) {
             socket.video_room = video_room;
             socket.join(video_room);
             socket.emit("created video room");
+            console.log(video_room);
         } else if (numClients === 1) {
             socket.broadcast.to(video_room).emit("join video room", video_room);
             socket.video_room = video_room;
