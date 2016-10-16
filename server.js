@@ -120,7 +120,7 @@ io.on("connection", function (socket) {
         if (message === "bye"){
             socket.leave(socket.video_room);
             socket.video_room = '';
-            console.log("Hello ", socket.video_room);
+            console.log(io.of('/').adapter.rooms);
         }
     });
 
