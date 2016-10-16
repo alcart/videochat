@@ -485,7 +485,7 @@ function VideoCall(room) {
     console.log('Getting user media with constraints', constraints);
 
     function maybeStart() {
-        if (!isStarted && typeof localStream != 'undefined' && isChannelReady) {
+        if (!isStarted && localStream !== 'undefined' && isChannelReady) {
             createPeerConnection();
             pc.addStream(localStream);
             isStarted = true;
