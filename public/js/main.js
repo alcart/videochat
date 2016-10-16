@@ -418,7 +418,7 @@ function VideoCall(room) {
     });
 
     socket.on("joined video room", function (room) {
-        console.log("This peer has joined room" + room);
+        console.log("This peer has joined room " + room);
         isChannelReady = true;
     });
 

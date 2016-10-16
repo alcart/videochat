@@ -90,9 +90,9 @@ io.on("connection", function (socket) {
 
     socket.on("approved video", function (id) {
         console.log("approved");
-        var url = randomToken();
-        socket.to(id).emit("video call approved", url);
-        socket.emit("video call approved", url);
+        var room = randomToken();
+        socket.to(id).emit("video call approved", room);
+        socket.emit("video call approved", room);
     });
     socket.on("denied video", function (id) {
         console.log("denied");
@@ -122,8 +122,11 @@ io.on("connection", function (socket) {
     });
 
     socket.on('message', function (message) {
-        console.log("got message", message);
         socket.broadcast.to(socket.video_room).emit('message', message);
+        if (message === "bye"){
+            socket.leave(socket.video_room);
+            socket.video_room = '';
+        }
     });
 
 });
