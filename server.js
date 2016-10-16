@@ -10,10 +10,6 @@ var rooms = [];
 
     var http = require('http');
 
-    app.get("/test", function (req, res) {
-        res.sendFile(__dirname+"/public/test.html");
-        console.log();
-    });
     app.use(function (req,res,next) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -56,7 +52,7 @@ io.on("connection", function (socket) {
             socket.username = username;
             socket.room_name = room_name;
             socket.emit("created", username);
-            console.log("created");
+            console.log("created chat room");
         }
     });
     socket.on("new message", function (msg) {
@@ -80,7 +76,6 @@ io.on("connection", function (socket) {
     // Video Room Events
 
     socket.on("video call request", function (id){
-        console.log(id);
         socket.to(id).emit("video call", {
             username: socket.username,
             id: socket.id
@@ -110,7 +105,6 @@ io.on("connection", function (socket) {
             socket.video_room = video_room;
             socket.join(video_room);
             socket.emit("created video room", video_room);
-            console.log(video_room);
         } else if (numClients === 1) {
             socket.broadcast.to(video_room).emit("join video room", video_room);
             socket.video_room = video_room;
@@ -126,7 +120,7 @@ io.on("connection", function (socket) {
         if (message === "bye"){
             socket.leave(socket.video_room);
             socket.video_room = '';
-            console.log(socket.video_room);
+            console.log("Hello ", socket.video_room);
         }
     });
 
