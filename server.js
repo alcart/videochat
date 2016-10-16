@@ -114,15 +114,14 @@ io.on("connection", function (socket) {
             socket.emit("full");
         }
     });
-
     socket.on('message', function (message) {
         socket.broadcast.to(socket.video_room).emit('message', message);
-        if (message === "bye"){
-            socket.leave(socket.video_room);
-            socket.video_room = '';
-            console.log(io.sockets.adapter.rooms);
-        }
     });
+    socket.on("bye", function () {
+        socket.leave(socket.video_room);
+        socket.video_room = '';
+        console.log(io.sockets.adapter.rooms);
+    })
 
 });
 

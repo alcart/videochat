@@ -517,7 +517,6 @@ function VideoCall(room) {
     }
 
     function handleIceCandidate(event) {
-        console.log('handleIceCandidate event: ', event);
         if (event.candidate) {
             sendMessage({
                 type: 'candidate',
@@ -558,7 +557,6 @@ function VideoCall(room) {
         // Set Opus as the preferred codec in SDP if Opus is present.
         sessionDescription.sdp = preferOpus(sessionDescription.sdp);
         pc.setLocalDescription(sessionDescription);
-        console.log('setLocalAndSendMessage sending message', sessionDescription);
         sendMessage(sessionDescription);
     }
 
@@ -584,6 +582,7 @@ function VideoCall(room) {
         for (var i in tracks){
             tracks[i].stop();
         }
+        socket.emit("bye");
         isStarted = false;
         // isAudioMuted = false;
         // isVideoMuted = false;
@@ -675,4 +674,3 @@ function VideoCall(room) {
         return sdpLines;
     }
 }
-
