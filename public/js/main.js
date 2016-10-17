@@ -49,7 +49,7 @@ function showNotification(body, title, tag) {
 // Scroll Bar Plugin
 (function($){
     $(window).load(function(){
-        $('.messages').mCustomScrollbar({
+        $('.chat').mCustomScrollbar({
             axis: "y",
             autoExpandScrollbar: true,
             mouseWheel: {enable:true},
@@ -59,7 +59,7 @@ function showNotification(body, title, tag) {
             theme: "minimal-black",
             callbacks: {
                 onSelectorChange: function () {
-                    $('.messages').mCustomScrollbar("scrollTo", "last",{
+                    $('.chat').mCustomScrollbar("scrollTo", "last",{
                         scrollInertia:0,
                         timeout:0
                     });

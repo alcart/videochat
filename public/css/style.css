@@ -48,8 +48,8 @@ html, body, .container-table, .login_page{
 }
 
 .video-container{
-	width : 50%;
-	height: 75%;
+	width : 75%;
+	height: 70%;
     background: url("../img/gray.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -71,6 +71,11 @@ html, body, .container-table, .login_page{
 	border: 7px solid #000000;
 	border-radius: 41px;
 }
+#hung-up {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+}
 
 .but{
 	background-color: #CFCFCF;
@@ -83,7 +88,7 @@ html, body, .container-table, .login_page{
 	margin-bottom: 4px;
 	outline:none;
 }
-#but:hover {
+.but:hover {
 	background-color: #0F0F0F;
 	color: #F3F3F3;
 	margin-top: 3px;
