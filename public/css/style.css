@@ -282,10 +282,6 @@ html, body, .container-table, .login_page{
     color: #ffffff;
     outline: none;
 }
-.chat input {
-    -webkit-appearance: none;
-    border-radius: 0;
-}
 
 .answer-add .answer-btn {
     display: block;
@@ -300,37 +296,22 @@ html, body, .container-table, .login_page{
     background: url("http://91.234.35.26/iwiki-admin/v1.0.0/admin/img/icon-41.png") 50% 50% no-repeat;
     right: 20px;
 }
-.chat input::-webkit-input-placeholder {
+.answer-add input::-webkit-input-placeholder {
     color: #fff;
 }
 
-.chat input:-moz-placeholder { /* Firefox 18- */
+.answer-add input:-moz-placeholder { /* Firefox 18- */
     color: #fff;
 }
 
-.chat input::-moz-placeholder {  /* Firefox 19+ */
+.answer-add input::-moz-placeholder {  /* Firefox 19+ */
     color: #fff;
 }
 
-.chat input:-ms-input-placeholder {
+.answer-add input:-ms-input-placeholder {
     color: #fff;
 }
-.chat input {
+.answer-add input {
     -webkit-appearance: none;
     border-radius: 0;
-}
-::-webkit-input-placeholder {
-    color: white;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-    color: white;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-    color: white;
-}
-
-:-ms-input-placeholder {
-    color: white;
 }
