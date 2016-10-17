@@ -5,77 +5,77 @@
 
 
 html, body, .container-table, .login_page{
-	height: 100%;
-	font-style: normal;
+    height: 100%;
+    font-style: normal;
 }
 .login_page {
-	text-align: center;
+    text-align: center;
 }
 
 .container-table {
-	display: table;
+    display: table;
 }
 .room_container {
-	width : 50%;
-	display: table-cell;
-	vertical-align: middle;
-	text-align: center;
+    width : 50%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }
 .room_info {
-	text-align: center;
-	border-left: none;
-	border-right: none;
-	border-top: none;
-	border-bottom: 2px inset #000000;
-	font-size: 44px;
-	outline: none;
+    text-align: center;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 2px inset #000000;
+    font-size: 44px;
+    outline: none;
 }
 #answer-button{
-	margin-left: 100px;
-	width: 130px;
-	height: 60px;
-	font-size: 24px;
+    margin-left: 100px;
+    width: 130px;
+    height: 60px;
+    font-size: 24px;
 }
 #ignore-button{
-	width: 130px;
-	height: 60px;
-	font-size: 24px;
-	margin-left: 100px;
+    width: 130px;
+    height: 60px;
+    font-size: 24px;
+    margin-left: 100px;
 }
 
 .vertical-center {
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
 }
 
 .video-container{
     text-align: center;
-	width : 100%;
-	height: 90%;
+    width : 100%;
+    height: 90%;
     background: url("../img/gray.jpg") no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover
 }
 .local {
-	position: absolute;
-	width: 20%;
-	height: 25%;
-	background-color: #ffffff;
-	border: 3px solid #000000;
-	border-radius: 9px;
+    position: absolute;
+    width: 20%;
+    height: 25%;
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    border-radius: 9px;
 }
 .remote {
-	width: 80%;
-	height: 90%;
-	background-color: #FFFFFF;
-	border: 7px solid #000000;
-	border-radius: 41px;
+    width: 80%;
+    height: 90%;
+    background-color: #FFFFFF;
+    border: 7px solid #000000;
+    border-radius: 41px;
 }
 
 #hang-up {
@@ -100,81 +100,81 @@ html, body, .container-table, .login_page{
 }
 
 .but{
-	background-color: #CFCFCF;
-	border: 1px inset #414141;
-	font-size: 14px;
-	border-radius: 9px;
-	transition-duration: 0.2s;
-	margin-top: 3px;
-	margin-right: 7px;
-	margin-bottom: 4px;
-	outline:none;
+    background-color: #CFCFCF;
+    border: 1px inset #414141;
+    font-size: 14px;
+    border-radius: 9px;
+    transition-duration: 0.2s;
+    margin-top: 3px;
+    margin-right: 7px;
+    margin-bottom: 4px;
+    outline:none;
 }
 .but:hover {
-	background-color: #0F0F0F;
-	color: #F3F3F3;
-	margin-top: 3px;
-	margin-right: 7px;
-	outline:none;
+    background-color: #0F0F0F;
+    color: #F3F3F3;
+    margin-top: 3px;
+    margin-right: 7px;
+    outline:none;
 }
 .content {
-	height: 98%;
+    height: 98%;
 }
 .row.row-broken {
-	padding-bottom: 0;
-	height: 90%;
-	width: 70%;
-	font-family: "Open Sans";
-	background-color: #FFFFFF;
-	margin: auto;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	border-radius: 15px;
-	border: 2px solid #008B8b;
+    padding-bottom: 0;
+    height: 90%;
+    width: 70%;
+    font-family: "Open Sans";
+    background-color: #FFFFFF;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 15px;
+    border: 2px solid #008B8b;
 }
 .col-inside-lg {
-	padding: 20px;
-	border-width: 0px;
+    padding: 20px;
+    border-width: 0px;
 }
 .chat {
-	height: 85%;
+    height: 85%;
 }
 .main-wrapper {
-	border-right: 3px solid #008B8b;
-	border-top-left-radius: 15px;
-	border-bottom-left-radius: 15px;
+    border-right: 3px solid #008B8b;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 .chat-wrapper {
-	height: 100%;
-	background-color: #D3D3D3;
+    height: 100%;
+    background-color: #D3D3D3;
 
 }
 .decor-default {
-	background-color: #ffffff;
+    background-color: #ffffff;
 }
 .chat-users{
-	height: 100%;
+    height: 100%;
 }
 .chat-users h6 {
-	font-size: 3vw;
-	font-family: 'Pacifico', serif;
+    font-size: 3vw;
+    font-family: 'Pacifico', serif;
 }
 .chat-users .user {
-	position: relative;
-	display: block;
-	cursor: pointer;
+    position: relative;
+    display: block;
+    cursor: pointer;
 }
 
 .chat-users .user .name {
-	font-size: 20px;
-	font-weight: bold;
-	line-height: 20px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /*****************CHAT BODY *******************/
@@ -191,20 +191,22 @@ html, body, .container-table, .login_page{
 }
 
 .chat-body{
-	height: 80%;
+    height: 80%;
 }
 
 .chat-body .answer.left {
-	padding: 0 0 0 10px;
-	text-align: left;
-	float: left;
-	margin-bottom: 5px;
+    padding: 0 0 0 10px;
+    text-align: left;
+    float: left;
+    margin-bottom: 5px;
 }
 .chat-body .answer {
-	position: relative;
-	max-width: 600px;
-	overflow: hidden;
-	clear: both;
+    position: relative;
+    max-width: 200px;
+    overflow: hidden;
+    word-wrap: break-word;
+    clear: both;
+
 }
 
 .chat-body .answer .name {
@@ -213,110 +215,122 @@ html, body, .container-table, .login_page{
 }
 
 .chat-body .answer.left .text {
-	background: #ebebeb;
-	color: #333333;
-	border-radius: 8px 8px 8px 0;
+    background: #ebebeb;
+    color: #333333;
+    border-radius: 8px 8px 8px 0;
 }
 .chat-body .answer .text {
-	padding: 3px 3px 3px 3px;
+    padding: 3px 3px 3px 3px;
     font-size: 15px;
-    line-height: 33px;
-	position: relative;
+    line-height: 22px;
+    position: relative;
 }
 .chat-body .answer.left .text:before {
-	left: -30px;
-	border-right-color: #ebebeb;
-	border-right-width: 13px;
+    left: -30px;
+    border-right-color: #ebebeb;
+    border-right-width: 13px;
 }
 .chat-body .answer .text:before {
-	content: '';
-	display: block;
-	position: absolute;
-	bottom: 0;
-	border: 18px solid transparent;
-	border-bottom-width: 0;
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    border: 18px solid transparent;
+    border-bottom-width: 0;
 }
 
 /*RIGHT*/
 .chat-body .answer.right {
-	padding: 0 20px 0 0;
-	text-align: right;
-	float: right;
-	margin-bottom: 5px;
+    padding: 0 20px 0 0;
+    text-align: right;
+    float: right;
+    margin-bottom: 5px;
 }
 
 .chat-body .answer.right .text {
-	background: #008B8b;
-	color: #ffffff;
-	border-radius: 8px 8px 0 8px;
+    background: #008B8b;
+    color: #ffffff;
+    border-radius: 8px 8px 0 8px;
 }
 .chat-body .answer.right .text:before {
-	right: -30px;
-	border-left-color: #008B8b;
-	border-left-width: 13px;
+    right: -30px;
+    border-left-color: #008B8b;
+    border-left-width: 13px;
 }
-.chat-body .answer.right .time {
-	padding-right: 12px;
-	color: #333333;
-}
+
 
 /**************ADD FORM ***************/
 .answer-add {
-	position: relative;
-	width: 70%;
-	float: right;
-	margin-top: 30px;
-	padding: 20px;
-	background: #4f9f98;
-	border-radius: 13px;
-	bottom: 0;
-	right: 4px;
+    position: relative;
+    width: 70%;
+    float: right;
+    margin-top: 30px;
+    padding: 20px;
+    background: #4f9f98;
+    border-radius: 13px;
+    bottom: 0;
+    right: 4px;
 }
 .answer-add input {
-	border: none;
-	background: none;
-	display: block;
-	width: 100%;
-	font-size: 16px;
-	line-height: 20px;
-	padding: 0;
-	color: #ffffff;
-	outline: none;
+    border: none;
+    background: none;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0;
+    color: #ffffff;
+    outline: none;
 }
 .chat input {
-	-webkit-appearance: none;
-	border-radius: 0;
+    -webkit-appearance: none;
+    border-radius: 0;
 }
 
 .answer-add .answer-btn {
-	display: block;
-	cursor: pointer;
-	width: 36px;
-	height: 36px;
-	position: absolute;
-	top: 50%;
-	margin-top: -18px;
+    display: block;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    top: 50%;
+    margin-top: -18px;
 }
 .answer-add .answer-btn-2 {
-	background: url("http://91.234.35.26/iwiki-admin/v1.0.0/admin/img/icon-41.png") 50% 50% no-repeat;
-	right: 20px;
+    background: url("http://91.234.35.26/iwiki-admin/v1.0.0/admin/img/icon-41.png") 50% 50% no-repeat;
+    right: 20px;
 }
 .chat input::-webkit-input-placeholder {
-	color: #fff;
+    color: #fff;
 }
 
 .chat input:-moz-placeholder { /* Firefox 18- */
-	color: #fff;
+    color: #fff;
 }
 
 .chat input::-moz-placeholder {  /* Firefox 19+ */
-	color: #fff;
+    color: #fff;
 }
 
 .chat input:-ms-input-placeholder {
-	color: #fff;
+    color: #fff;
 }
 .chat input {
-	-webkit-appearance: none;
-	border-radius: 0;
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+::-webkit-input-placeholder {
+    color: white;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: white;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: white;
+}
+
+:-ms-input-placeholder {
+    color: white;
 }
