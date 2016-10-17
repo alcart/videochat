@@ -426,7 +426,6 @@ function VideoCall(room) {
 ///////////////////////////////////////////////
 
     function sendMessage(message) {
-        console.log('Client sending message: ', message);
         // if (typeof message === 'object') {
         //   message = JSON.stringify(message);
         // }
