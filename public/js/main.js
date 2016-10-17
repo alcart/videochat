@@ -1,7 +1,7 @@
 // JavaScript Document
 'use strict'
 var $button = $('#but');
-var $button2= $('#hung-up');
+var $button2= $('#hang-up');
 var $window = $(document);
 
 var $login_page = $('.login_page');
