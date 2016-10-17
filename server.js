@@ -89,9 +89,14 @@ io.on("connection", function (socket) {
         socket.to(id).emit("video call approved", room);
         socket.emit("video call approved", room);
     });
-    socket.on("denied video", function (id) {
+    socket.on("denied video", function (id, message) {
         console.log("denied");
-        socket.to(id).emit("video call denied", socket.username);
+        if (message === "not compatible"){
+            socket.to(id).emit("not compatible", socket.username);
+        }
+        else {
+            socket.to(id).emit("video call denied", socket.username);
+        }
     });
 
     socket.on("create or join video", function (username, video_room) {

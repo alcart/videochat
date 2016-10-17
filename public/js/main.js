@@ -319,32 +319,44 @@ socket.on("video call denied", function (username) {
     $videoOffer.modal();
 });
 
-socket.on("video call", function (data) {
-    $("#whois").text(data.username + " Is Calling You");
-    $videoOffer.modal({backdrop: "static"});
-    mp3_2.loop = true;
-    mp3_2.play();
+socket.on("not compatible", function (username) {
+    $("#whois").text("Sorry :(");
+    $("#mdl-body").text(username + "'s browser is not compatible");
+    $videoOffer.modal();
+});
 
-    $("#answer-button").click(function () {
-        socket.emit("approved video", data.id);
-        $videoOffer.modal("hide");
-        mp3_2.pause();
-        mp3_2.loop = false;
-        clearTimeout(vtime);
-    });
-    $("#ignore-button").click(function () {
-        socket.emit("denied video", data.id);
-        $videoOffer.modal("hide");
-        mp3_2.pause();
-        mp3_2.loop = false;
-        clearTimeout(vtime);
-    });
-    var vtime = setTimeout(function () {
-        socket.emit("denied video", data.id);
-        $videoOffer.modal("hide");
-        mp3.loop = false;
-        mp3.pause();
-    }, 30000);
+socket.on("video call", function (data) {
+    if (getUserMedia) {
+        $("#whois").text(data.username + " Is Calling You");
+        $videoOffer.modal({backdrop: "static"});
+        mp3_2.loop = true;
+        mp3_2.play();
+
+        $("#answer-button").click(function () {
+            socket.emit("approved video", data.id);
+            $videoOffer.modal("hide");
+            mp3_2.pause();
+            mp3_2.loop = false;
+            clearTimeout(vtime);
+        });
+        $("#ignore-button").click(function () {
+            socket.emit("denied video", data.id);
+            $videoOffer.modal("hide");
+            mp3_2.pause();
+            mp3_2.loop = false;
+            clearTimeout(vtime);
+        });
+        var vtime = setTimeout(function () {
+            socket.emit("denied video", data.id);
+            $videoOffer.modal("hide");
+            mp3.loop = false;
+            mp3.pause();
+        }, 30000);
+    }
+    else {
+        alert("Browser is not compatible. That means you can't use our video call system :(");
+        socket.emit("denied video", data.id, "not compatible");
+    }
 });
 
 $window.ready(function () {
