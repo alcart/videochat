@@ -569,8 +569,6 @@ function VideoCall(room) {
     function hangup() {
         stop();
         sendMessage('bye');
-        $('.video-container').hide(500, 'swing');
-        $chatPage.show();
     }
 
     function handleRemoteHangup() {
@@ -590,8 +588,15 @@ function VideoCall(room) {
         // isVideoMuted = false;
         pc.close();
         pc = null;
+        remoteStream = 'undefined';
+        localStream = 'undefined';
+        isChannelReady = false;
+        isInitiator = false;
+        isStarted = false;
         remotevideo.attr("src", "");
         localvideo.attr("src", "");
+        $('.video-container').hide(500, 'swing');
+        $chatPage.show();
     }
 
 //////////////////////////////////////////////////////
