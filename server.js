@@ -117,11 +117,6 @@ io.on("connection", function (socket) {
     socket.on('message', function (message) {
         socket.broadcast.to(socket.video_room).emit('message', message);
     });
-    socket.on("bye", function () {
-        socket.leave(socket.video_room);
-        socket.video_room = '';
-        console.log(io.sockets.adapter.rooms);
-    })
 
 });
 

@@ -118,8 +118,9 @@ function addUsername(main_data){
                     icon.hide();
                 });
                 usernameDiv.click(function () {
-                    socket.emit("video call request", this.firstChild.id);
-                    console.log("Hello");
+                    if(confirm("In order to make this call you have to leave this chat")) {
+                        socket.emit("video call request", main_data.id);
+                    }
                 });
                 $chat_users.append(usernameDiv);
             }
@@ -138,7 +139,9 @@ function addUsername(main_data){
             icon.hide();
         });
         usernameDiv.click(function () {
-            socket.emit("video call request", main_data.id);
+            if(confirm("In order to make this call you have to leave this chat")) {
+                socket.emit("video call request", main_data.id);
+            }
         });
         $chat_users.append(usernameDiv);
     }
@@ -578,25 +581,12 @@ function VideoCall(room) {
     }
 
     function stop() {
-        var tracks = localStream.getTracks();
-        for (var i in tracks){
-            tracks[i].stop();
-        }
-        socket.emit("bye");
         isStarted = false;
         // isAudioMuted = false;
         // isVideoMuted = false;
         pc.close();
         pc = null;
-        remoteStream = 'undefined';
-        localStream = 'undefined';
-        isChannelReady = false;
-        isInitiator = false;
-        isStarted = false;
-        remotevideo.attr("src", "");
-        localvideo.attr("src", "");
-        $('.video-container').hide(500, 'swing');
-        $chatPage.show();
+        window.location.reload();
     }
 
 //////////////////////////////////////////////////////
