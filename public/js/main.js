@@ -434,7 +434,7 @@ function VideoCall(room) {
     }
 
     socket.on('message', function (message) {
-        if (message !== 'object') {
+        if (message !== 'object' && message.type !== 'candidate') {
             console.log('Client received message:', message);
         }
         if (message === 'got user media') {
