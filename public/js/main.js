@@ -119,7 +119,7 @@ function addUsername(main_data){
                 });
                 usernameDiv.click(function () {
                     if(confirm("In order to make this call you have to leave this chat")) {
-                        socket.emit("video call request", main_data.id);
+                        socket.emit("video call request", this.firstChild.id);
                     }
                 });
                 $chat_users.append(usernameDiv);
@@ -587,6 +587,7 @@ function VideoCall(room) {
         pc.close();
         pc = null;
         window.location.reload();
+
     }
 
 //////////////////////////////////////////////////////
