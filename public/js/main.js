@@ -590,6 +590,8 @@ function VideoCall(room) {
         // isVideoMuted = false;
         pc.close();
         pc = null;
+        remotevideo.attr("src", "");
+        localvideo.attr("src", "");
     }
 
 //////////////////////////////////////////////////////
