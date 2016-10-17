@@ -299,7 +299,10 @@ socket.on("video call approved", function (room_id) {
     console.log(room_id);
     var currentUrl = window.location.href;
     $chatPage.hide();
-    $('.video-container').show(500, 'swing', VideoCall(room_id));
+    var visible = $('.video-container').is(":visible");
+    if (!visible){
+        $('.video-container').show(500, 'swing', VideoCall(room_id));
+    }
 });
 
 socket.on("video call denied", function (username) {
