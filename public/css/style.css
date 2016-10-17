@@ -1,3 +1,8 @@
+@-webkit-keyframes phoneAnimation {
+    from {bottom: -5px}
+    to {bottom: -20px}
+}
+
 
 html, body, .container-table, .login_page{
 	height: 100%;
@@ -48,8 +53,9 @@ html, body, .container-table, .login_page{
 }
 
 .video-container{
-	width : 75%;
-	height: 70%;
+    text-align: center;
+	width : 100%;
+	height: 90%;
     background: url("../img/gray.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -58,23 +64,39 @@ html, body, .container-table, .login_page{
 }
 .local {
 	position: absolute;
-	width: 133px;
-	height: 100px;
+	width: 20%;
+	height: 25%;
 	background-color: #ffffff;
 	border: 3px solid #000000;
 	border-radius: 9px;
 }
 .remote {
-	width: 720px;
-	height: 541px;
+	width: 80%;
+	height: 90%;
 	background-color: #FFFFFF;
 	border: 7px solid #000000;
 	border-radius: 41px;
 }
-#hung-up {
+
+#hang-up {
+    width: 100px;
+    height: 100px;
+    background-image: url("../img/phone.png");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     position: absolute;
-    bottom: 0;
-    right: 50%;
+    bottom: -10px;
+    right: 47%;
+}
+
+#hang-up:hover {
+    cursor: pointer;
+    -webkit-animation: phoneAnimation 1s infinite;
+    -webkit-animation-timing-function: ease;
+    animation: phoneAnimation 1s infinite;
+    animation-timing-function: ease;
 }
 
 .but{
@@ -111,7 +133,7 @@ html, body, .container-table, .login_page{
 	bottom: 0;
 	right: 0;
 	border-radius: 15px;
-	border: 2px solid #000000;
+	border: 2px solid #008B8b;
 }
 .col-inside-lg {
 	padding: 20px;
@@ -121,7 +143,7 @@ html, body, .container-table, .login_page{
 	height: 85%;
 }
 .main-wrapper {
-	border-right: 3px solid #7D7D7D;
+	border-right: 3px solid #008B8b;
 	border-top-left-radius: 15px;
 	border-bottom-left-radius: 15px;
 }
@@ -156,20 +178,24 @@ html, body, .container-table, .login_page{
 }
 
 /*****************CHAT BODY *******************/
-.log {
-	background: #000000;
-	color: #ffffff;
-	border-radius: 8px 8px 8px 0;
-	padding: 12px;
-	font-size: 16px;
-	line-height: 26px;
-	position: relative;}
+.chat-body .log {
+    background: #ffffff;
+    color: #000000;
+    clear: both;
+    border-radius: 8px 8px 8px 0;
+    font-size: 18px;
+    list-style: none;
+    text-align: -webkit-center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 .chat-body{
 	height: 80%;
 }
 
 .chat-body .answer.left {
-	padding: 0 0 0 58px;
+	padding: 0 0 0 10px;
 	text-align: left;
 	float: left;
 	margin-bottom: 5px;
@@ -182,8 +208,8 @@ html, body, .container-table, .login_page{
 }
 
 .chat-body .answer .name {
-	font-size: 8px;
-	line-height: 36px;
+    font-size: 11px;
+    line-height: 19px;
 }
 
 .chat-body .answer.left .text {
@@ -193,14 +219,14 @@ html, body, .container-table, .login_page{
 }
 .chat-body .answer .text {
 	padding: 3px 3px 3px 3px;
-	font-size: 12px;
-	line-height: 26px;
+    font-size: 15px;
+    line-height: 33px;
 	position: relative;
 }
 .chat-body .answer.left .text:before {
 	left: -30px;
 	border-right-color: #ebebeb;
-	border-right-width: 12px;
+	border-right-width: 13px;
 }
 .chat-body .answer .text:before {
 	content: '';
@@ -220,14 +246,14 @@ html, body, .container-table, .login_page{
 }
 
 .chat-body .answer.right .text {
-	background: #000000;
+	background: #008B8b;
 	color: #ffffff;
 	border-radius: 8px 8px 0 8px;
 }
 .chat-body .answer.right .text:before {
 	right: -30px;
-	border-left-color: #000000;
-	border-left-width: 12px;
+	border-left-color: #008B8b;
+	border-left-width: 13px;
 }
 .chat-body .answer.right .time {
 	padding-right: 12px;
@@ -241,7 +267,7 @@ html, body, .container-table, .login_page{
 	float: right;
 	margin-top: 30px;
 	padding: 20px;
-	background: #808080;
+	background: #4f9f98;
 	border-radius: 13px;
 	bottom: 0;
 	right: 4px;

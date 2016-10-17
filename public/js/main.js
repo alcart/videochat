@@ -16,7 +16,7 @@ var $inputMessage = $('.input-message');
 var $videoOffer = $("#video-offer");
 var socket = io();
 
-var Username;
+var myId;
 var connected = false;
 var inactive = false;
 var mp3_1 = document.createElement("AUDIO");
@@ -97,7 +97,7 @@ function showNotification(body, title, tag) {
 
 // Functions
 function log(message) {
-    var $el = $('<li class="answer">').text(message);
+    var $el = $('<div class="log">').text(message);
     addMessageElement($el);
 }
 
@@ -105,7 +105,7 @@ function addUsername(main_data){
     var icon, username, usernameDiv;
     if (main_data[0]) {
         for (var i in main_data) {
-            if (main_data[i].username != Username) {
+            if (main_data[i].id != myId) {
                 icon = $("<i class='glyphicon glyphicon-facetime-video'>");
                 username = $("<p class='name'>").text(main_data[i].username).attr("id", main_data[i].id);
                 username.append(icon);
@@ -218,7 +218,7 @@ function disconnectRoom() {
 
 socket.on("created", function (username) {
     connected = true;
-    Username = username;
+    myId = socket.id;
     $login_page.fadeOut();
     $login_page.off('click');
     $chatPage.show();
@@ -241,7 +241,7 @@ socket.on("created", function (username) {
 
 socket.on("joined", function (data) {
     if (!connected){
-        Username = data.username;
+        myId = socket.id;
         $login_page.fadeOut();
         $login_page.off('click');
         $chatPage.show();
