@@ -118,8 +118,13 @@ function addUsername(main_data){
                     icon.hide();
                 });
                 usernameDiv.click(function () {
-                    if(confirm("In order to make this call you have to leave this chat")) {
-                        socket.emit("video call request", this.firstChild.id);
+                    if (getUserMedia) {
+                        if (confirm("In order to make this call you have to leave this chat")) {
+                            socket.emit("video call request", this.firstChild.id);
+                        }
+                    }
+                    else {
+                        alert("Browser is not compatible. That means you can't use our video call system :(")
                     }
                 });
                 $chat_users.append(usernameDiv);
