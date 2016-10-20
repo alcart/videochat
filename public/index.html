@@ -26,24 +26,26 @@
     </div>
 </div>
 <div class="container-fluid video-container vertical-center" style="display: none">
-    <div id="hang-up" class=""></div>
+    <span id="hang-up" class=""></span>
     <video class="local pull-left" autoplay muted></video>
     <video class="remote" autoplay></video>
 </div>
 
 <div class="container-fluid login_page" style="display: block">
-    <h1>CS50 Video/Chat</h1>
-    <h4> 5C Copyright &reg;</h4>
     <div class="container-fluid container-table">
+        <div class="header">
+            <h1>Welcome to CS50 Video Chat</h1>
+            <h2>Create or Join a Room to Start Chatting</h2>
+        </div>
         <div class="room_container">
             <div>
-                <input class="room_info" type="text" id="username" placeholder="Tell Me Your Name">
+                <input class="room_info" type="text" id="username" placeholder="Your Name">
             </div>
             <div>
-                <input class="room_info" type="text" id="room_name"  placeholder="Type Room Name">
+                <input class="room_info" type="text" id="room_name"  placeholder="Name of the Room">
             </div>
             <div>
-                <input class="room_info" type="password" placeholder="Type Password" id="room_password">
+                <input class="room_info" type="password" placeholder="Room Password" id="room_password">
             </div>
             <div class="error alert alert-danger" style="display: none">
                 <strong>Error!</strong>
