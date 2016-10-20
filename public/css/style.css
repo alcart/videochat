@@ -1,6 +1,6 @@
 @-webkit-keyframes phoneAnimation {
-    from {bottom: 100px}
-    to {bottom: 95px}
+    from {bottom: -5px}
+    to {bottom: -20px}
 }
 
 
@@ -105,7 +105,7 @@ html, body, .container-table, .login_page{
     -o-background-size: cover;
     background-size: cover;
     position: absolute;
-    bottom: 100px;
+    bottom: -10px;
     right: 47%;
 }
 
