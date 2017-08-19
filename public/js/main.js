@@ -23,6 +23,7 @@ var mp3_1 = document.createElement("AUDIO");
 var mp3_2 = document.createElement("AUDIO");
 var room;
 
+var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
 function askPermission() {
     if (window.Notification && Notification.permission !== "granted"){
@@ -502,7 +503,7 @@ function VideoCall(room) {
     }
 
     var constraints = {video: true, audio: true};
-    getUserMedia(constraints, handleUserMedia, handleUserMediaError);
+    getUserMedia.call(navigator, constraints, handleUserMedia, handleUserMediaError);
 
     console.log('Getting user media with constraints', constraints);
 

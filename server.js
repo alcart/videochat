@@ -52,7 +52,6 @@ io.on("connection", function (socket) {
             socket.username = username;
             socket.room_name = room_name;
             socket.emit("created", username);
-            console.log("created chat room");
         }
     });
     socket.on("new message", function (msg) {
@@ -69,8 +68,7 @@ io.on("connection", function (socket) {
                 delete rooms[socket.room_name];
             }
         }
-        console.log("disconnect");
-        console.log(rooms);
+        ("disconnect");
     });
 
     // Video Room Events
@@ -80,17 +78,14 @@ io.on("connection", function (socket) {
             username: socket.username,
             id: socket.id
         });
-        console.log("Sending video call request");
     });
 
     socket.on("approved video", function (id) {
-        console.log("approved");
         var room = randomToken();
         socket.to(id).emit("video call approved", room);
         socket.emit("video call approved", room);
     });
     socket.on("denied video", function (id, message) {
-        console.log("denied");
         if (message === "not compatible"){
             socket.to(id).emit("not compatible", socket.username);
         }
@@ -128,7 +123,3 @@ io.on("connection", function (socket) {
 function randomToken() {
     return Math.floor((1 + Math.random()) * 1e16).toString(16).substring(1);
 }
-
-
-
-
